@@ -1,6 +1,7 @@
 import * as THREE from 'three'; // importa biblioteca
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'; // Importando o OrbitControls
 import {gerarMundo,luzesCena} from '../Scripts/mundo.js'
+import {stats} from '../Scripts/mundo.js'
 
 const cena = new THREE.Scene(); // criar cena
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); // criar camera
@@ -15,13 +16,16 @@ const controles = new OrbitControls(camera, renderizador.domElement);
 
 camera.position.set(-32,16,-32)// distancia inicial
 controles.target.set(16, 0, 16)
-controles.update(); 
+controles.update();
 // função para chamar cena
 function cenario() {
+	stats.update() 
+	stats.begin()
 	// renderizar cena e camera
 	renderizador.render( cena, camera );
+	stats.end()
 }
 
-gerarMundo(cena,32)
+gerarMundo(cena,40)
 luzesCena(cena)
 renderizador.setAnimationLoop( cenario );

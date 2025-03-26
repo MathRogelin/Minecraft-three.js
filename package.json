@@ -12,6 +12,7 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
+    "noisejs": "^2.1.0",
     "three": "^0.174.0"
   }
 }
