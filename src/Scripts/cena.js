@@ -26,6 +26,6 @@ function cenario() {
 	stats.end()
 }
 
-gerarMundo(cena,40)
+gerarMundo(cena,32)
 luzesCena(cena)
 renderizador.setAnimationLoop( cenario );
